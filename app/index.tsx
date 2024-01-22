@@ -3,10 +3,11 @@ import React from "react";
 import { Stack, useRouter } from "expo-router";
 
 export default function index() {
+  const router = useRouter();
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: "Home" }} />
-      <Button title="Hello" />
+      <Stack.Screen options={{ title: "Login" }} />
+      <Button title="Log in" onPress={() => router.replace("/(tabs)/home")} />
     </View>
   );
 }

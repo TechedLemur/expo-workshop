@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, Button } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 import React from "react";
 import { Link, Stack } from "expo-router";
 import Colors from "@/constants/Colors";
@@ -8,6 +8,9 @@ export default function Home() {
     <View style={styles.container}>
       <Stack.Screen options={{ headerShown: false }} />
       <Text style={styles.header}>Welcome to the Todo App!</Text>
+      <Link href={"/"} asChild={true} replace={true}>
+        <Button title="Log Out" color={Colors.seaGreen} />
+      </Link>
     </View>
   );
 }
