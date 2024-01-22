@@ -5,7 +5,6 @@ import { Stack, useRouter } from "expo-router";
 export default function index() {
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: "Home" }} />
       <Button title="Hello" />
     </View>
   );
