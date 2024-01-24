@@ -6,7 +6,6 @@ import Colors from "@/constants/Colors";
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ headerShown: false }} />
       <Text style={styles.header}>Welcome to the Todo App!</Text>
       <Link href={"/"} asChild={true} replace={true}>
         <Button title="Log Out" color={Colors.seaGreen} />
