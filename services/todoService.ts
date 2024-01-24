@@ -29,7 +29,24 @@ async function getTodos(): Promise<Todo[]> {
   if (currentTodos) {
     return JSON.parse(currentTodos);
   } else {
-    return [];
+    const mockTodos: Todo[] = [
+      {
+        id: 1,
+        text: "Learn React Native",
+        complete: true,
+      },
+      {
+        id: 2,
+        text: "Learn Expo",
+        complete: false,
+      },
+      {
+        id: 3,
+        text: "Learn CSS",
+        complete: false,
+      },
+    ];
+    return mockTodos;
   }
 }
 
