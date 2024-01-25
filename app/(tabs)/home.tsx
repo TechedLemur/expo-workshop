@@ -7,6 +7,9 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Welcome to the Todo App!</Text>
+      <Link href={"/(tabs)/todos"} asChild={true} replace={true}>
+        <Button title="Todos" color={Colors.primaryRed} />
+      </Link>
       <Link href={"/"} asChild={true} replace={true}>
         <Button title="Log Out" color={Colors.seaGreen} />
       </Link>

@@ -1,18 +1,22 @@
-import { View, Text, SafeAreaView } from "react-native";
+import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import React from "react";
 import todoService, { Todo } from "@/services/todoService";
 import Colors from "@/constants/Colors";
 import { Platform, StatusBar, StyleSheet } from "react-native";
 import TodoItem from "@/components/TodoItem";
+import { Ionicons } from "@expo/vector-icons";
+import { Link, useFocusEffect } from "expo-router";
+import Toast from "react-native-toast-message";
 
 export default function Todos() {
   const [todos, setTodos] = React.useState<Todo[]>([]);
-
-  React.useEffect(() => {
-    todoService.getTodos().then((data) => {
-      setTodos(data);
-    });
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      todoService.getTodos().then((data) => {
+        setTodos(data);
+      });
+    }, [])
+  );
 
   const incompleteTodos = todos.filter((todo) => !todo.complete);
   const completeTodos = todos.filter((todo) => todo.complete);
@@ -30,6 +34,11 @@ export default function Todos() {
     todoService.deleteTodoById(todo.id).then(() => {
       const newTodos = todos.filter((t) => t.id !== todo.id);
       setTodos(newTodos);
+      Toast.show({
+        type: "success",
+        text1: "Todo deleted",
+        text2: "Successfully deleted todo",
+      });
     });
   };
 
@@ -58,6 +67,13 @@ export default function Todos() {
             />
           ))}
         </View>
+      </View>
+      <View style={styles.absoluteButton}>
+        <Link href={"/(tabs)/todos/createTodo"} asChild={true}>
+          <TouchableOpacity>
+            <Ionicons name="add-circle" size={60} color={Colors.primaryRed} />
+          </TouchableOpacity>
+        </Link>
       </View>
     </SafeAreaView>
   );

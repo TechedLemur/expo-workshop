@@ -22,7 +22,7 @@ export default function TabsRootLayout() {
         }}
       />
       <Tabs.Screen
-        name="todos/index"
+        name="todos"
         options={{
           title: "Todos",
           tabBarIcon: ({ color, size }) => (
