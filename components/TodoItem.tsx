@@ -4,6 +4,12 @@ import { Todo } from "@/services/todoService";
 import Colors from "@/constants/Colors";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import Animated, {
+  FadeIn,
+  FadeOut,
+  FadeOutRight,
+  LinearTransition,
+} from "react-native-reanimated";
 
 type Props = {
   todo: Todo;
@@ -18,7 +24,12 @@ export default function TodoItem({
 }: Props) {
   const router = useRouter();
   return (
-    <View style={styles.wrapper}>
+    <Animated.View
+      style={styles.wrapper}
+      entering={FadeIn}
+      // exiting={FadeOut}
+      layout={LinearTransition.springify().stiffness(100).damping(20)}
+    >
       <View style={{ flexDirection: "row", gap: 10, alignItems: "center" }}>
         <TouchableOpacity onPress={handleToggleTodo}>
           <Ionicons
@@ -40,7 +51,7 @@ export default function TodoItem({
           <Ionicons name="trash" size={24} color={Colors.burgundy} />
         </TouchableOpacity>
       </View>
-    </View>
+    </Animated.View>
   );
 }
 

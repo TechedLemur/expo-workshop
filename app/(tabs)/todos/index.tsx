@@ -1,4 +1,10 @@
-import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import todoService, { Todo } from "@/services/todoService";
 import Colors from "@/constants/Colors";
@@ -18,6 +24,9 @@ export default function Todos() {
     }, [])
   );
 
+  const incompleteRef = React.useRef<ScrollView>(null);
+  const completedRef = React.useRef<ScrollView>(null);
+
   const incompleteTodos = todos.filter((todo) => !todo.complete);
   const completeTodos = todos.filter((todo) => todo.complete);
 
@@ -27,6 +36,11 @@ export default function Todos() {
       const filteredTodos = todos.filter((t) => t.id !== todo.id);
       const newTodos = [...filteredTodos, newTodo];
       setTodos(newTodos);
+      if (newTodo.complete) {
+        completedRef.current?.scrollToEnd();
+      } else {
+        incompleteRef.current?.scrollToEnd();
+      }
     });
   };
 
@@ -47,25 +61,35 @@ export default function Todos() {
       <View style={styles.todoContainer}>
         <View style={styles.todoList}>
           <Text style={styles.heading}>Todos</Text>
-          {incompleteTodos.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-              handleToggleTodo={() => handleToggleTodo(todo)}
-              handleDeleteTodo={() => handleDeleteTodo(todo)}
-            />
-          ))}
+          <ScrollView
+            contentContainerStyle={{ gap: 10, padding: 20 }}
+            ref={incompleteRef}
+          >
+            {incompleteTodos.map((todo) => (
+              <TodoItem
+                key={todo.id}
+                todo={todo}
+                handleToggleTodo={() => handleToggleTodo(todo)}
+                handleDeleteTodo={() => handleDeleteTodo(todo)}
+              />
+            ))}
+          </ScrollView>
         </View>
         <View style={styles.todoList}>
           <Text style={styles.heading}>Completed Todos</Text>
-          {completeTodos.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-              handleToggleTodo={() => handleToggleTodo(todo)}
-              handleDeleteTodo={() => handleDeleteTodo(todo)}
-            />
-          ))}
+          <ScrollView
+            ref={completedRef}
+            contentContainerStyle={{ gap: 10, padding: 20, paddingBottom: 100 }}
+          >
+            {completeTodos.map((todo) => (
+              <TodoItem
+                key={todo.id}
+                todo={todo}
+                handleToggleTodo={() => handleToggleTodo(todo)}
+                handleDeleteTodo={() => handleDeleteTodo(todo)}
+              />
+            ))}
+          </ScrollView>
         </View>
       </View>
       <View style={styles.absoluteButton}>
