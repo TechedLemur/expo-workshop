@@ -15,6 +15,14 @@ export default function ProfileLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer
+        screenOptions={{
+          drawerActiveTintColor: Colors.primaryRed,
+          headerTintColor: Colors.white,
+          headerBackground: () => (
+            <View style={{ flex: 1, backgroundColor: Colors.primaryRed }} />
+          ),
+          sceneContainerStyle: { backgroundColor: Colors.primaryCreamWhite },
+        }}
         drawerContent={(props) => (
           <>
             <DrawerContentScrollView {...props}>
