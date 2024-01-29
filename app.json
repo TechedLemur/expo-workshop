@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "TodoApp",
-    "slug": "TodoApp",
+    "slug": "todo-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.jostein.tysse.todoapp"
     },
     "web": {
       "bundler": "metro",
@@ -35,6 +36,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "eed803b2-9ca5-416b-bbd3-e9635192f4d5"
+      }
+    },
+    "owner": "jostein.tysse"
   }
 }

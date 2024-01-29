@@ -15,6 +15,7 @@ export default function CreateTodo() {
         text1: "Todo Created",
         text2: "Successfully created new todo",
       });
+      setTodoText("");
     });
   };
   return (
