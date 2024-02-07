@@ -25,7 +25,7 @@ npm start
 
 Run the app on your device scanning the QR code in the Expo app. Alternatively, run the app on an emulator by pressing `a` for Android or `i` for iOS.
 
-If you have connection issues, try running the app with `npx expo start --tunnel` instead. This will tunnel the connection through Expo's servers.
+If you have connection issues, try running the app with `npx expo start --tunnel` instead. This create a proxy server that will allow you to run the app on your device even if you are not on the same network as your computer. You need to install ngrok to use this feature. You can install ngrok by running `npm install -g ngrok`.
 
 ### Common Issues
 
