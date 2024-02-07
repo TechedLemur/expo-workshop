@@ -9,6 +9,7 @@ This workshop will guide you through the process of creating a simple todo app u
 - Node.js LTS release or greater
 
 - A device to run the Expo app on (Android or iOS) or an emulator
+  - Install the Expo app from the [App Store](https://itunes.apple.com/app/apple-store/id982107779) or [Google Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www) if you want to run the app on your device
 
 ### Install Dependencies
 
