@@ -88,6 +88,7 @@ The finished todo screen should look something like this:
 - The pencil icon on the todo item should open the edit todo screen with the content of the TodoForm already filled.
 - Use the todoService to store the created and edited todos.
 - Bonus: Add a popup Toast message for feedback to the user
+- Extra bonus: Add a share button in the "Edit Todo"-screen that opens the share dialog on the device. [React Native share docs](https://reactnative.dev/docs/share)
 
 The finished screens should look something like this:
 
