@@ -14,7 +14,7 @@ Some useful resources for this workshop:
 - When pressing the Login button, the app should navigate to the home page.
   Hint: navigate using the Link component or the expo router object / useRouter hook https://docs.expo.dev/router/navigating-pages/
 - When logged in, it should not be possible to go back to the login page by going back in the navigation stack. Instead, add a logout button to the home page.
-- Bonus: Change the title on the login page to “Login” (This can be achieved in at least 2 different ways) [(react navigaiton docs) ](https://reactnavigation.org/docs/headers/)
+- Bonus: Change the title on the login page to “Login” (This can be achieved in at least 2 different ways) [(react navigation docs) ](https://reactnavigation.org/docs/headers/)
 
 The finished screens should look something like this:
 
