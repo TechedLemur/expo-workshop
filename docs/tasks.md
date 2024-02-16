@@ -2,13 +2,19 @@
 
 Follow the tasks below to complete the app. If you get stuck, you can find the solution in the respective branch in the repository. Some styles are provided in the [styles](../styles/) folder, but feel free to change them to your liking. Do not import the styles directly from the styles folder, instead copy them to the respective component and modify them there.
 
+Some useful resources for this workshop:
+
+- [Expo Router](https://docs.expo.dev/router/create-pages/)
+- [React Native](https://reactnative.dev/docs/components-and-apis)
+- [React Navigation screen options](https://reactnavigation.org/docs/screen-options/)
+
 ## Task 1 - Log in
 
 - Update the Button text in app/index.tsx to be “Log in”
 - When pressing the Login button, the app should navigate to the home page.
   Hint: navigate using the Link component or the expo router object / useRouter hook https://docs.expo.dev/router/navigating-pages/
 - When logged in, it should not be possible to go back to the login page by going back in the navigation stack. Instead, add a logout button to the home page.
-- Bonus: Change the title on the login page to “Login” (This can be achieved in at least 2 different ways)
+- Bonus: Change the title on the login page to “Login” (This can be achieved in at least 2 different ways) [(react navigaiton docs) ](https://reactnavigation.org/docs/headers/)
 
 The finished screens should look something like this:
 
@@ -38,12 +44,15 @@ The finished screens should look something like this:
 
 - Make the profile page use a drawer layout.
   - https://docs.expo.dev/router/advanced/drawer/
-- The drawer should contain the following items (also, see picture for illustration).
+- The drawer should contain the following items (also, see picture for illustration). These items should appear automatically without much additional configuration.
   - Profile
   - Settings (moves to a settings screen within the profile tab)
-  - About (opens a modal screen, tab bar should be hidden. Remember to set presentation mode to modal)
+- Bonus: add a custom drawer content component which adds the following buttons:
+
+  - About (opens a [modal screen](https://docs.expo.dev/router/advanced/modals/), tab bar should be hidden. Remember to set presentation mode to modal). Hint: the modal should be a separate screen, not a part of the tabs layout, which means that the file must be placed outside the tabs folder.
   - Log out ( navigate back to the log in screen)
-- Tips: https://reactnavigation.org/docs/drawer-navigator#providing-a-custom-drawercontent
+
+  - Tips: https://reactnavigation.org/docs/drawer-navigator#providing-a-custom-drawercontent
 
 The finished screens should look something like this:
 
@@ -95,7 +104,7 @@ The finished screens should look something like this:
   - Set the default background color to Primary cream white for the screens in the drawer layout.
     - Hint: Scene Container styles
   - Set the header color to Primary red and the text color to white.
-    - Hint: Create custom element for the background
+    - Hint: Headerstyle and tint properties
 - Profile image
   - Make it possible to select a profile image from phone library or take a new picture.
     - https://reactnative.dev/docs/image#examples
